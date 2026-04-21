@@ -11,7 +11,7 @@ dependencies = [
     "numpy>=1.24",
     "duckdb>=0.10",
     "soundfile>=0.12",
-    "tqdm>=4.66",
+    "rich>=13.7",
     "mutagen>=1.47",
 ]
 
@@ -30,6 +30,8 @@ cluster = ["umap-learn>=0.5", "hdbscan>=0.8", "scikit-learn>=1.3"]
 ann = ["hnswlib>=0.8"]
 # MusicBrainz fingerprint matching.
 mb = ["pyacoustid>=1.3"]
+# Streamlit visualization dashboard.
+ui = ["streamlit>=1.30", "plotly>=5.18", "pandas>=2.0"]
 # Everything.
 all = [
     "essentia-tensorflow>=2.1b6.dev1034",
@@ -43,6 +45,9 @@ all = [
     "scikit-learn>=1.3",
     "hnswlib>=0.8",
     "pyacoustid>=1.3",
+    "streamlit>=1.30",
+    "plotly>=5.18",
+    "pandas>=2.0",
 ]
 
 [project.scripts]
