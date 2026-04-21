@@ -1,0 +1,29 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.env
+.ipynb_checkpoints/
+
+# Local data / models / databases
+*.duckdb
+*.duckdb.wal
+models/
+data/cache/
+*.pb
+*.onnx
+*.pt
+*.bin
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/

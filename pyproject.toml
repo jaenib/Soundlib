@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "soundlib"
+version = "0.1.0"
+description = "Music library genre vectorizer: scan a folder, embed tracks, predict genres, cluster, and search."
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "duckdb>=0.10",
+    "soundfile>=0.12",
+    "tqdm>=4.66",
+    "mutagen>=1.47",
+]
+
+[project.optional-dependencies]
+# Essentia models (Discogs-Effnet) — primary genre backend.
+essentia = ["essentia-tensorflow>=2.1b6.dev1034"]
+# Joint audio/text embeddings for queries like "dark minimal techno".
+clap = ["laion-clap>=1.1.6", "torch>=2.1", "torchaudio>=2.1"]
+# Music-specific transformer embeddings.
+mert = ["transformers>=4.40", "torch>=2.1", "torchaudio>=2.1"]
+# Classical handcrafted features fallback.
+librosa = ["librosa>=0.10"]
+# Clustering + 2D projection.
+cluster = ["umap-learn>=0.5", "hdbscan>=0.8", "scikit-learn>=1.3"]
+# Fast ANN search for large libraries.
+ann = ["hnswlib>=0.8"]
+# MusicBrainz fingerprint matching.
+mb = ["pyacoustid>=1.3"]
+# Everything.
+all = [
+    "essentia-tensorflow>=2.1b6.dev1034",
+    "laion-clap>=1.1.6",
+    "transformers>=4.40",
+    "torch>=2.1",
+    "torchaudio>=2.1",
+    "librosa>=0.10",
+    "umap-learn>=0.5",
+    "hdbscan>=0.8",
+    "scikit-learn>=1.3",
+    "hnswlib>=0.8",
+    "pyacoustid>=1.3",
+]
+
+[project.scripts]
+soundlib = "soundlib.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["soundlib*"]
+
+[tool.setuptools.package-data]
+soundlib = ["data/*.json"]
